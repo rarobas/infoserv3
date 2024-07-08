@@ -1,3 +1,4 @@
+var currentYear = new Date().getFullYear();
 var Toast = Swal.mixin({
   toast: true,
   position: "top-right",
@@ -120,3 +121,7 @@ const main = {
     },
   },
 };
+
+    
+// Display the current year in the HTML document
+$("#page-footer").text(`Copyright &copy; BSIT 3-2N BARANGAY TEAM `+currentYear);
