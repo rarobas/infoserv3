@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="custom-page-header">Settings</div>
+
+  <div class="card">
+    <div class="card-body">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-change-password-tab" data-bs-toggle="tab" data-bs-target="#nav-change-password" type="button" role="tab" aria-controls="nav-change-password" aria-selected="true">Change Password</button>
+          <button class="nav-link invisible" id="nav-change-email-tab" data-bs-toggle="tab" data-bs-target="#nav-change-email" type="button" role="tab" aria-controls="nav-change-email" aria-selected="true">Change Email Address</button>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-change-password" role="tabpanel" aria-labelledby="nav-change-password-tab">
+          <form id="change_password_form" class="mt-4">
+            <div class="mb-3">
+              <label for="current_password_inp" class="form-label">Old Password</label>
+              <input type="password" class="form-control" id="current_password_inp" />
+            </div>
+            <div class="mb-3">
+              <label for="new_password_inp" class="form-label">New Password</label>
+              <input type="password" class="form-control" id="new_password_inp" />
+            </div>
+            <div class="mb-3">
+              <label for="confirm_new_password_inp" class="form-label">Confirm New Password</label>
+              <input type="password" class="form-control" id="confirm_new_password_inp" />
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="show_password" />
+              <label class="form-check-label text-muted" for="show_password">Show password</label>
+            </div>
+            <button type="button" class="btn btn-primary" id="change_password_btn">Update</button>
+          </form>
+        </div>
+        <div class="tab-pane fade show" id="nav-change-email" role="tabpanel" aria-labelledby="nav-change-email-tab">
+          <form id="change_email_form" class="mt-4">
+            <div class="mb-3">
+              <label for="new_email_inp" class="form-label">New email</label>
+              <input type="email" class="form-control" id="new_email_inp" onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete="off" />
+            </div>
+            <div class="mb-3">
+              <label for="confirm_new_email_inp" class="form-label">Confirm New email</label>
+              <input type="email" class="form-control" id="confirm_new_email_inp" onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete="off" />
+            </div>
+            <button type="button" class="btn btn-primary" id="change_email_btn">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../controller/user/settings.js"></script>

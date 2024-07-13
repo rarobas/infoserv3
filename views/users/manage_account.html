@@ -1,0 +1,115 @@
+<div class="container-fluid">
+  <div class="alert alert-light" role="alert">
+    <div class="row">
+      <div class="col-2 fw-bold">Maintenance Mode:</div>
+      <div class="col-3">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="maintenance_mode" />
+          <label class="form-check-label" for="maintenance_mode" id="maintenance_mode_label"></label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card shadow-sm">
+    <div class="card-header">
+      <div class="custom-page-header">MANAGE ACCOUNTS</div>
+    </div>
+    <div class="card-body">
+      <form class="manage-account-form" novalidate>
+        <div class="row mb-2">
+          <div class="col-md-4 form-outline mb-4">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control form-control-sm" id="username" placeholder="Username" minlength="4" required />
+          </div>
+          <div class="col-md-4 form-outline mb-4">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" class="form-control form-control-sm" id="password" placeholder="Password" minlength="8" required />
+          </div>
+          <div class="col-md-4 form-outline mb-4">
+            <label for="user_role" class="form-label">User Type</label>
+            <select class="form-select form-select-sm" id="user_role" required>
+              <option selected disabled value="">Select User Type</option>
+            </select>
+          </div>
+          <div class="col-md-4 form-outline mb-4">
+            <label for="first_name" class="form-label">First Name</label>
+            <input type="text" class="form-control form-control-sm" id="first_name" placeholder="First Name" required />
+          </div>
+          <div class="col-md-4 form-outline mb-4">
+            <label for="last_name" class="form-label">Last Name</label>
+            <input type="text" class="form-control form-control-sm" id="last_name" placeholder="Last Name" required />
+          </div>
+          <div class="col-md-4 form-outline mb-4">
+            <label for="user_province" class="form-label">User Province</label>
+            <select class="form-select form-select-sm" id="user_province" required>
+              <option selected disabled value="">Select Province</option>
+              <option value="Cavite">Cavite</option>
+              <option value="Laguna">Laguna</option>
+              <option value="Batangas">Batangas</option>
+              <option value="Rizal">Rizal</option>
+              <option value="Quezon">Quezon</option>
+              <option value="Regional Office">Regional Office</option>
+            </select>
+          </div>
+          <div class="col-md-12 form-outline mb-4">
+            <div class="row">
+              <div class="col-md-8">
+                <label for="user_access" class="form-label">User Access</label>
+                <select class="user_access form-select form-select-sm" name="user_access[]" id="user_access" multiple="multiple">
+                  <option value="dashboard">Dashboard</option>
+                  <option value="view_companies">View Companies</option>
+                  <option value="view_application">View Application</option>
+                  <option value="evaluation_po">Evaluation (PO)</option>
+                  <option value="evaluation_ro">Evaluation (RO)</option>
+                  <option value="evaluation_pme">Evaluation (PME)</option>
+                  <option value="reports">Reports</option>
+                  <option value="transaction">Transaction</option>
+                  <option value="assign_personnel">Assign Personnel</option>
+                  <option value="document_issuance">Document Issuance</option>
+                  <option value="inspection_process">Inspection Process</option>
+                  <option value="receive_forward">Receive and Forward of Documents</option>
+                  <option value="ord_receiving">ORD Receiving</option>
+                  <option value="ro_docket">RO Docket Receiving</option>
+                  <option value="returned_po">Returned Transaction (PO)</option>
+                  <option value="returned_ro">Returned Transaction (RO)</option>
+                  <option value="transmit_to_po">Transmit to PO</option>
+                  <option value="generation_of_authority">Generation of Authority</option>
+                  <option value="pto_cert_issuance">PTO Cert Issuance</option>
+                  <option value="order_of_payment">Payment Transaction</option>
+                  <option value="authority_letter_monitoring">Authority Letter Monitoring</option>
+                  <option value="compliance">Compliance</option>
+                  <option value="transmit_to_ro">Transmit to RO</option>
+                </select>
+              </div>
+              <div class="col-md-4 mt-2">
+                <label for=""></label>
+                <button type="button" class="btn btn-primary btn-sm btn-block ladda-button" data-size="xs" data-style="zoom-out" id="create_account_btn">Create Account</button>
+
+                <div class="btn-group mt-4" role="group">
+                  <button type="button" class="btn btn-warning btn-sm ladda-button" data-size="xs" data-style="zoom-out" id="update_account_btn" style="display: none"><span class="ladda-label">Update Account</span></button>
+                </div>
+                <div class="btn-group mt-4" role="group">
+                  <button type="button" class="btn btn-danger btn-sm" id="cancel_account_btn" style="display: none">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <hr />
+      <h3>List of Accounts</h3>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control form-control-sm" placeholder="Search User Account" id="search_account_text" />
+        <button type="button" class="btn btn-outline-secondary btn-sm" id="search_account_btn">Search</button>
+      </div>
+      <div class="custom-table-container">
+        <div class="table-responsive">
+          <!-- add width = 100% to be responsive when adjusting screen size -->
+          <table class="table table-bordered table-hover custom-table-header" width="100%" id="user_accounts_dt"></table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../controller/user/manage_account.js"></script>
