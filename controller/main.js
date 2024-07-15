@@ -82,6 +82,17 @@ const main = {
       }));
     },
   },
+  populate: {
+    account_name: function () {
+      let storedData = localStorage.getItem("userData");
+
+      if (storedData != null) {
+        // console.log(storedData);
+        var parsedData = JSON.parse(storedData);
+        document.getElementById("welcome_account_name").innerHTML = `${parsedData.full_name} (${parsedData.user_barangay})`;
+      }
+    },
+  },
   button: {
     loader_start: function (btn, loader_btn) {
       // Hide the Sign Up button and show the Loading button
@@ -120,3 +131,5 @@ const main = {
     },
   },
 };
+
+main.populate.account_name();
