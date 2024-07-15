@@ -5,6 +5,10 @@ div#app {
 img.barangay-logo {
   height: 2rem;
 }
+img.barangay-logo-login {
+  height: 5rem;
+  margin-bottom: 1em;
+}
 
 div.custom-page-header {
   font-size: 1.5rem;

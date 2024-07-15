@@ -8,7 +8,7 @@ var cancel_account_btn = document.getElementById("cancel_account_btn");
 // let status_label = document.getElementById("status_label");
 // let status_field = document.getElementById("status");
 
-var manage_account = {
+let manage_account = {
   input: function () {
     const form_data = {
       username: document.getElementById("username"),
@@ -344,3 +344,4 @@ $(document)
   //     }
   //   });
   // });
+console.log(manage_account.tbl.user_account_tbl.columns);

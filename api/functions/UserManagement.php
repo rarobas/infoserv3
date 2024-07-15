@@ -104,7 +104,7 @@ class UserManagement {
     $query = "SELECT `user_id`, `username`, `password`, `first_name`, `last_name`, CONCAT_WS(' ', `first_name`, `last_name`) as `full_name`, `tbl_user`.`user_role_id`, `role_desc`, `user_barangay`,  `access_routes`, `user_status`
               FROM `tbl_user`
               INNER JOIN `tbl_user_role` USING (`user_role_id`)
-              WHERE IF(:username = '', 1 = 1, (username LIKE TRIM(:username_like) OR first_name LIKE TRIM(:username_like) OR last_name LIKE TRIM(:username_like) OR role_desc LIKE TRIM(:username_like))) AND `user_role_id` <> 1
+              WHERE IF(:username = '', 1 = 1, (username LIKE TRIM(:username_like) OR first_name LIKE TRIM(:username_like) OR last_name LIKE TRIM(:username_like) OR role_desc LIKE TRIM(:username_like)))
               ORDER BY user_id DESC
               LIMIT :limit OFFSET :limit_offset
               ";
