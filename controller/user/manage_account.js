@@ -42,7 +42,7 @@ var manage_account = {
     });
   },
   tbl: {
-    // --------------------------------------------PARAMETERS-------------------------------------------------
+    // --------------------------------------------PARAMETERS-------------------------------------------------->generate table
     user_account_tbl: function () {
       let unfiltered_rows_count;
 
@@ -50,7 +50,7 @@ var manage_account = {
         { data: "username", title: "Username", className: "username", sortable: false },
         { data: "full_name", title: "Full Name", className: "full_name", sortable: false },
         { data: "role_desc", title: "User Role", className: "role_desc", sortable: false },
-        { data: "user_barangay", title: "Province", className: "user_barangay", sortable: false },
+        { data: "user_barangay", title: "Barangay", className: "user_barangay", sortable: false },
         { data: "access_routes", title: "Access", className: "access_routes", sortable: false },
         { data: "user_status", title: "Status", className: "user_status", sortable: false },
         { title: "Actions", className: "td_actions", sortable: false },
@@ -62,7 +62,7 @@ var manage_account = {
         searchDelay: 1000,
         searching: false,
         processing: true,
-        // pageLength: 10, // default 10
+        //pageLength: 10, // default 10
         lengthChange: true,
         lengthMenu: [10, 25, 50, 100],
         paging: true,
@@ -217,7 +217,7 @@ main.init.validator("form.manage-account-form");
 // initialize methods
 manage_account.tbl.user_account_tbl();
 manage_account.user_role_list();
-manage_account.get.maintenance_mode();
+//manage_account.get.maintenance_mode(); //for future upgrade
 
 $(document)
   // CREATE USER
@@ -325,22 +325,22 @@ $(document)
     $("#user_accounts_dt").DataTable().draw(true); // refresh with false = to retain page when draw
   })
   // MAINTENANCE
-  .off("change", "#maintenance_mode")
-  .on("change", "#maintenance_mode", function () {
-    // Check if the checkbox is checked
-    let mode = $(this).prop("checked") ? 0 : 1;
+  // .off("change", "#maintenance_mode")
+  // .on("change", "#maintenance_mode", function () {
+  //   // Check if the checkbox is checked
+  //   let mode = $(this).prop("checked") ? 0 : 1;
 
-    const params = {
-      _mode: mode,
-    };
+  //   const params = {
+  //     _mode: mode,
+  //   };
 
-    manage_account.maintenance_action(params, function (resp) {
-      if (resp.is_maintenance == 0) {
-        $("#maintenance_mode_label").html(`<span class="badge bg-success">Online</span>`);
-        main.toast.success("Server is back online");
-      } else {
-        $("#maintenance_mode_label").html(`<span class="badge bg-danger">Offline</span>`);
-        main.toast.error("Server is now in maintenance mode");
-      }
-    });
-  });
+  //   manage_account.maintenance_action(params, function (resp) {
+  //     if (resp.is_maintenance == 0) {
+  //       $("#maintenance_mode_label").html(`<span class="badge bg-success">Online</span>`);
+  //       main.toast.success("Server is back online");
+  //     } else {
+  //       $("#maintenance_mode_label").html(`<span class="badge bg-danger">Offline</span>`);
+  //       main.toast.error("Server is now in maintenance mode");
+  //     }
+  //   });
+  // });

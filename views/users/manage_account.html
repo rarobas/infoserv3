@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="alert alert-light" role="alert">
+  <!-- <div class="alert alert-light" role="alert">
     <div class="row">
       <div class="col-2 fw-bold">Maintenance Mode:</div>
       <div class="col-3">
@@ -9,7 +9,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="card shadow-sm">
     <div class="card-header">
       <div class="custom-page-header">MANAGE ACCOUNTS</div>
@@ -40,15 +40,10 @@
             <input type="text" class="form-control form-control-sm" id="last_name" placeholder="Last Name" required />
           </div>
           <div class="col-md-4 form-outline mb-4">
-            <label for="user_province" class="form-label">User Province</label>
-            <select class="form-select form-select-sm" id="user_province" required>
-              <option selected disabled value="">Select Province</option>
-              <option value="Cavite">Cavite</option>
-              <option value="Laguna">Laguna</option>
-              <option value="Batangas">Batangas</option>
-              <option value="Rizal">Rizal</option>
-              <option value="Quezon">Quezon</option>
-              <option value="Regional Office">Regional Office</option>
+            <label for="user_barangay" class="form-label">User Barangay</label>
+            <select class="form-select form-select-sm" id="user_barangay" required>
+              <option selected disabled value="">Select Barangay</option>
+              <option value="barangay 80">Barangay 80</option>
             </select>
           </div>
           <div class="col-md-12 form-outline mb-4">
@@ -57,28 +52,8 @@
                 <label for="user_access" class="form-label">User Access</label>
                 <select class="user_access form-select form-select-sm" name="user_access[]" id="user_access" multiple="multiple">
                   <option value="dashboard">Dashboard</option>
-                  <option value="view_companies">View Companies</option>
-                  <option value="view_application">View Application</option>
-                  <option value="evaluation_po">Evaluation (PO)</option>
-                  <option value="evaluation_ro">Evaluation (RO)</option>
-                  <option value="evaluation_pme">Evaluation (PME)</option>
-                  <option value="reports">Reports</option>
-                  <option value="transaction">Transaction</option>
-                  <option value="assign_personnel">Assign Personnel</option>
-                  <option value="document_issuance">Document Issuance</option>
-                  <option value="inspection_process">Inspection Process</option>
-                  <option value="receive_forward">Receive and Forward of Documents</option>
-                  <option value="ord_receiving">ORD Receiving</option>
-                  <option value="ro_docket">RO Docket Receiving</option>
-                  <option value="returned_po">Returned Transaction (PO)</option>
-                  <option value="returned_ro">Returned Transaction (RO)</option>
-                  <option value="transmit_to_po">Transmit to PO</option>
-                  <option value="generation_of_authority">Generation of Authority</option>
-                  <option value="pto_cert_issuance">PTO Cert Issuance</option>
-                  <option value="order_of_payment">Payment Transaction</option>
-                  <option value="authority_letter_monitoring">Authority Letter Monitoring</option>
-                  <option value="compliance">Compliance</option>
-                  <option value="transmit_to_ro">Transmit to RO</option>
+                  <option value="manage_account">Manage Account</option>
+                  <!-- add more options -->
                 </select>
               </div>
               <div class="col-md-4 mt-2">
