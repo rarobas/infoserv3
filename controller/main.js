@@ -84,11 +84,11 @@ const main = {
   },
   populate: {
     account_name: function () {
-      let storedData = localStorage.getItem("userData");
+      let BarangayData = localStorage.getItem("BarangayData");
 
-      if (storedData != null) {
-        // console.log(storedData);
-        var parsedData = JSON.parse(storedData);
+      if (BarangayData != null) {
+        // console.log(BarangayData);
+        var parsedData = JSON.parse(BarangayData);
         document.getElementById("welcome_account_name").innerHTML = `${parsedData.full_name} (${parsedData.user_barangay})`;
       }
     },

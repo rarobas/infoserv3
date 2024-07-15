@@ -16,7 +16,7 @@ var manage_account = {
       user_role_id: document.getElementById("user_role"), // TODO: please update the name
       first_name: document.getElementById("first_name"),
       last_name: document.getElementById("last_name"),
-      user_province: document.getElementById("user_province"),
+      user_barangay: document.getElementById("user_barangay"),
       // status: document.getElementById("status"),
       access_routes: manage_account.get.selected_user_access(),
     };
@@ -50,7 +50,7 @@ var manage_account = {
         { data: "username", title: "Username", className: "username", sortable: false },
         { data: "full_name", title: "Full Name", className: "full_name", sortable: false },
         { data: "role_desc", title: "User Role", className: "role_desc", sortable: false },
-        { data: "user_province", title: "Province", className: "user_province", sortable: false },
+        { data: "user_barangay", title: "Province", className: "user_barangay", sortable: false },
         { data: "access_routes", title: "Access", className: "access_routes", sortable: false },
         { data: "user_status", title: "Status", className: "user_status", sortable: false },
         { title: "Actions", className: "td_actions", sortable: false },
@@ -143,7 +143,7 @@ var manage_account = {
             "data-first_name": data.first_name,
             "data-last_name": data.last_name,
             "data-user_role_id": data.user_role_id,
-            "data-user_province": data.user_province,
+            "data-user_barangay": data.user_barangay,
             "data-access_routes": data.access_routes,
             "data-user_status": data.user_status,
           });
@@ -156,7 +156,7 @@ var manage_account = {
   add_update_user: function (cat, user_id, callback) {
     let action = cat == 1 ? "add_account.php" : "update_account.php";
 
-    const { username, password, user_role_id, first_name, last_name, user_province, access_routes } = manage_account.input();
+    const { username, password, user_role_id, first_name, last_name, user_barangay, access_routes } = manage_account.input();
     const params = {
       _user_id: user_id,
       _username: username.value,
@@ -164,7 +164,7 @@ var manage_account = {
       _user_role_id: user_role_id.value,
       _first_name: first_name.value,
       _last_name: last_name.value,
-      _user_province: user_province.value,
+      _user_barangay: user_barangay.value,
       _access_routes: access_routes,
       // _status: status,
     };
@@ -257,7 +257,7 @@ $(document)
   // UPDATE BUTTON
   .off("click", ".user_update_btn_dt")
   .on("click", ".user_update_btn_dt", function () {
-    let { user_id, username, password, user_role_id, first_name, last_name, user_province, access_routes } = $(this).data();
+    let { user_id, username, password, user_role_id, first_name, last_name, user_barangay, access_routes } = $(this).data();
 
     manage_account.reset.clear_user_field();
     manage_account.reset.hide_add_show_update_cancel_btn_user();
@@ -266,7 +266,7 @@ $(document)
     document.getElementById("user_role").value = user_role_id;
     document.getElementById("first_name").value = first_name;
     document.getElementById("last_name").value = last_name;
-    document.getElementById("user_province").value = user_province;
+    document.getElementById("user_barangay").value = user_barangay;
     // document.getElementById("status").value = status;
 
     // convert access_routes to array before populate to select2

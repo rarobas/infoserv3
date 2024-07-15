@@ -7,9 +7,9 @@ class UserManagement {
     $this->conn = $conn;
   }
 
-  public function addUser($username, $password, $user_role_id, $first_name, $last_name, $user_province, $access_routes) {
-    $query = "INSERT INTO `tbl_user` (`username`, `password`, `user_role_id`, `first_name`, `last_name`, `user_province`, `access_routes`, `date_created`) 
-                              VALUES (:username, :user_password, :user_role_id, :first_name, :last_name, :user_province, :access_routes, NOW())";
+  public function addUser($username, $password, $user_role_id, $first_name, $last_name, $user_barangay, $access_routes) {
+    $query = "INSERT INTO `tbl_user` (`username`, `password`, `user_role_id`, `first_name`, `last_name`, `user_barangay`, `access_routes`, `date_created`) 
+                              VALUES (:username, :user_password, :user_role_id, :first_name, :last_name, :user_barangay, :access_routes, NOW())";
     
     try {
       $statement = $this->conn->prepare($query);
@@ -19,7 +19,7 @@ class UserManagement {
         ":user_role_id" => $user_role_id,
         ":first_name" => $first_name,
         ":last_name" => $last_name,
-        ":user_province" => $user_province,
+        ":user_barangay" => $user_barangay,
         ":access_routes" => $access_routes,
       );
 
@@ -49,13 +49,13 @@ class UserManagement {
   }
 
 
-  public function updateUser($username, $password, $hashedPassword, $user_role_id, $first_name, $last_name, $user_province, $access_routes, $user_id) {
+  public function updateUser($username, $password, $hashedPassword, $user_role_id, $first_name, $last_name, $user_barangay, $access_routes, $user_id) {
     $query = "UPDATE tbl_user SET `username` = :username, 
                                   `password` = if(TRIM(:u_password) IS NULL OR TRIM(:u_password) = '', `password`, :user_password), -- retain if the value of password in update is empty
                                   `user_role_id` = :user_role_id, 
                                   `first_name` = :first_name, 
                                   `last_name` = :last_name, 
-                                  `user_province` = :user_province, 
+                                  `user_barangay` = :user_barangay, 
                                   `access_routes` = :access_routes
                                   -- `status` = :account_status
               WHERE `user_id` = :user_id LIMIT 1";
@@ -70,7 +70,7 @@ class UserManagement {
           ":user_role_id" => $user_role_id,
           ":first_name" => $first_name,
           ":last_name" => $last_name,
-          ":user_province" => $user_province,
+          ":user_barangay" => $user_barangay,
           ":access_routes" => $access_routes
           // ":account_status" => $status
       );
@@ -101,7 +101,7 @@ class UserManagement {
   }
 
   public function getUserDt($limit_offset, $username, $limit) {
-    $query = "SELECT `user_id`, `username`, `password`, `first_name`, `last_name`, CONCAT_WS(' ', `first_name`, `last_name`) as `full_name`, `tbl_user`.`user_role_id`, `role_desc`, `user_province`,  `access_routes`, `user_status`
+    $query = "SELECT `user_id`, `username`, `password`, `first_name`, `last_name`, CONCAT_WS(' ', `first_name`, `last_name`) as `full_name`, `tbl_user`.`user_role_id`, `role_desc`, `user_barangay`,  `access_routes`, `user_status`
               FROM `tbl_user`
               INNER JOIN `tbl_user_role` USING (`user_role_id`)
               WHERE IF(:username = '', 1 = 1, (username LIKE TRIM(:username_like) OR first_name LIKE TRIM(:username_like) OR last_name LIKE TRIM(:username_like) OR role_desc LIKE TRIM(:username_like))) AND `user_role_id` <> 1

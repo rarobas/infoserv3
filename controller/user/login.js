@@ -36,7 +36,7 @@ $(document)
     const password = $("#password").val();
     login.user(username, password, function (resp) {
       if (resp.status) {
-        localStorage.setItem("userData", JSON.stringify(resp.data));
+        localStorage.setItem("BarangayData", JSON.stringify(resp.data)); //convert `userData` to `BarangayData` in all localStorage Identifiers
         window.location.href = "../admin/";
       } else {
         // error input

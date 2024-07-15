@@ -8,8 +8,8 @@ var new_email_inp = document.getElementById("new_email_inp"),
 
 var settings = {
   init: function () {
-    let storedData = localStorage.getItem("userData");
-    var { login_type } = JSON.parse(storedData);
+    let BarangayData = localStorage.getItem("BarangayData");
+    var { login_type } = JSON.parse(BarangayData);
 
     if (login_type == "client") {
       document.getElementById("nav-change-email-tab").classList.remove("invisible");

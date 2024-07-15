@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $user_role_id = isset($_POST["_user_role_id"]) ? $_POST["_user_role_id"] : "";
   $first_name = isset($_POST["_first_name"]) ? $_POST["_first_name"] : "";
   $last_name = isset($_POST["_last_name"]) ? $_POST["_last_name"] : "";
-  $user_province = isset($_POST["_user_province"]) ? $_POST["_user_province"] : "";
+  $user_barangay = isset($_POST["_user_barangay"]) ? $_POST["_user_barangay"] : "";
   $access_routes = isset($_POST["_access_routes"]) ? $_POST["_access_routes"] : "";
 
   // get db connection, simplified version
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_role_id, 
     $first_name, 
     $last_name, 
-    $user_province, 
+    $user_barangay, 
     $access_routes
   );
 
