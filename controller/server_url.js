@@ -1,1 +1,1 @@
-const server_url = "http://localhost/infoserve/api/controller/";
+const server_url = "http://localhost/infoserv3/api/controller/";
